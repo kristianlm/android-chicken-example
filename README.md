@@ -37,7 +37,7 @@ This should place a `libnative-activity.so` file under `./libs/armeabi`
 ## Notes
 
 The example only prints out to stdout. This will not normally show up
-in your logcat. To have Android pipe stdout to logcat, see http://developer.android.com/guide/developing/tools/adb.html#logcat.
+in your logcat. To have Android pipe stdout to logcat, see http://developer.android.com/guide/developing/tools/adb.html#stdout.
 
 Note that this `stdout->logcat` feature seems to be buffering. You may have to wait for
 something to appear.
