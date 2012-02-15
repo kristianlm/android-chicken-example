@@ -17,7 +17,16 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := native-activity
-LOCAL_SRC_FILES := main.c
+
+LOCAL_SRC_FILES := main.c \
+	loop.c\
+\
+	chicken-4.7.0/runtime.c \
+	chicken-4.7.0/library.c \
+	chicken-4.7.0/ports.c \
+	chicken-4.7.0/eval.c \
+	chicken-4.7.0/expand.c
+
 LOCAL_LDLIBS    := -llog -landroid -lEGL -lGLESv1_CM
 LOCAL_STATIC_LIBRARIES := android_native_app_glue
 

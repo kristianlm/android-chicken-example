@@ -26,6 +26,9 @@
 #include <android/log.h>
 #include <android_native_app_glue.h>
 
+
+#include "chicken.h"
+
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "native-activity", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "native-activity", __VA_ARGS__))
 
@@ -56,6 +59,8 @@ struct engine {
     int32_t height;
     struct saved_state state;
 };
+
+static char chicken_initialized = 0;
 
 /**
  * Initialize an EGL context for the current display.
@@ -139,6 +144,10 @@ static void engine_draw_frame(struct engine* engine) {
             ((float)engine->state.y)/engine->height, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
+    if(chicken_initialized) {
+      chicken_update();
+    }
+
     eglSwapBuffers(engine->display, engine->surface);
 }
 
@@ -176,6 +185,11 @@ static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) 
     return 0;
 }
 
+static void chicken_init() {
+  CHICKEN_run(C_toplevel);
+  chicken_initialized = 1;
+}
+
 /**
  * Process the next main command.
  */
@@ -194,6 +208,7 @@ static void engine_handle_cmd(struct android_app* app, int32_t cmd) {
                 engine_init_display(engine);
                 engine_draw_frame(engine);
             }
+            chicken_init();
             break;
         case APP_CMD_TERM_WINDOW:
             // The window is being hidden or closed, clean it up.
