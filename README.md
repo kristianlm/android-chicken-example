@@ -4,8 +4,6 @@ A small template for developing Chicken apps/games interactively on
 Android. This template is heavily based on the native-activity sample
 application found in the Android NDK.
 
-OBS: OpenGL bindings c<->Chicken is currently at 'TODO'.
-
 This sample will start a OpenGL activity and evaluate your
 `/sdcard/live-update.scm` file which you can replace in a running
 session.
@@ -14,6 +12,13 @@ This template let's the Android NDK do the hard work of
 cross-compilation, and the chicken sources are included in the repo.
 
 ## Build steps
+
+#### Convert gl-bind.h into gl-bind.scm
+If you don't have it already, do `chicken-install bind `. Then do
+
+    chicken-bind ./headers/gl-bind.h
+
+A `./headers/gl-bind.scm` should be spit out.
 
 #### Compile loop.scm -> loop.c with:
 
