@@ -20,6 +20,7 @@ LOCAL_MODULE    := native-activity
 
 LOCAL_SRC_FILES := \
 	main.c \
+	gl-utils.c \
 	loop.c\
 	posix-extract.c\
 \
