@@ -18,8 +18,10 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := native-activity
 
-LOCAL_SRC_FILES := main.c \
+LOCAL_SRC_FILES := \
+	main.c \
 	loop.c\
+	posix-extract.c\
 \
 	chicken-4.7.0/runtime.c \
 	chicken-4.7.0/library.c \
