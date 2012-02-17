@@ -1,18 +1,18 @@
-#ifndef __gl_h_
-#define __gl_h_
 
 /* $Revision: 10601 $ on $Date:: 2010-03-04 22:15:27 -0800 #$ */
 
-#include <GLES/glplatform.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+//#include "khrplatform.h"
 /*
  * This document is licensed under the SGI Free Software B License Version
  * 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
  */
+
+typedef int              khronos_int32_t;
+typedef unsigned char     khronos_uint8_t;
+typedef float            khronos_float_t;
+typedef int*             khronos_intptr_t;
+typedef int            khronos_ssize_t;
 
 typedef void             GLvoid;
 typedef char             GLchar;
@@ -548,46 +548,12 @@ typedef khronos_ssize_t  GLsizeiptr;
 #define GL_DOT3_RGB                       0x86AE
 #define GL_DOT3_RGBA                      0x86AF
 
-/*------------------------------------------------------------------------*
- * required OES extension tokens
- *------------------------------------------------------------------------*/
 
-/* OES_read_format */
-#ifndef GL_OES_read_format
-#define GL_IMPLEMENTATION_COLOR_READ_TYPE_OES                   0x8B9A
-#define GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES                 0x8B9B
-#endif
-
-/* GL_OES_compressed_paletted_texture */
-#ifndef GL_OES_compressed_paletted_texture
-#define GL_PALETTE4_RGB8_OES                                    0x8B90
-#define GL_PALETTE4_RGBA8_OES                                   0x8B91
-#define GL_PALETTE4_R5_G6_B5_OES                                0x8B92
-#define GL_PALETTE4_RGBA4_OES                                   0x8B93
-#define GL_PALETTE4_RGB5_A1_OES                                 0x8B94
-#define GL_PALETTE8_RGB8_OES                                    0x8B95
-#define GL_PALETTE8_RGBA8_OES                                   0x8B96
-#define GL_PALETTE8_R5_G6_B5_OES                                0x8B97
-#define GL_PALETTE8_RGBA4_OES                                   0x8B98
-#define GL_PALETTE8_RGB5_A1_OES                                 0x8B99
-#endif
-
-/* OES_point_size_array */
-#ifndef GL_OES_point_size_array
-#define GL_POINT_SIZE_ARRAY_OES                                 0x8B9C
-#define GL_POINT_SIZE_ARRAY_TYPE_OES                            0x898A
-#define GL_POINT_SIZE_ARRAY_STRIDE_OES                          0x898B
-#define GL_POINT_SIZE_ARRAY_POINTER_OES                         0x898C
-#define GL_POINT_SIZE_ARRAY_BUFFER_BINDING_OES                  0x8B9F
-#endif
-
-/* GL_OES_point_sprite */
-#ifndef GL_OES_point_sprite
-#define GL_POINT_SPRITE_OES                                     0x8861
-#define GL_COORD_REPLACE_OES                                    0x8862
-#endif
 
 /*************************************************************/
+
+#define GL_APIENTRY 
+#define GL_API
 
 /* Available only in Common profile */
 GL_API void GL_APIENTRY glAlphaFunc (GLenum func, GLclampf ref);
@@ -736,35 +702,3 @@ GL_API void GL_APIENTRY glTexSubImage2D (GLenum target, GLint level, GLint xoffs
 GL_API void GL_APIENTRY glTranslatex (GLfixed x, GLfixed y, GLfixed z);
 GL_API void GL_APIENTRY glVertexPointer (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer);
 GL_API void GL_APIENTRY glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
-
-/*------------------------------------------------------------------------*
- * Required OES extension functions
- *------------------------------------------------------------------------*/
-
-/* GL_OES_read_format */
-#ifndef GL_OES_read_format
-#define GL_OES_read_format 1
-#endif
-
-/* GL_OES_compressed_paletted_texture */
-#ifndef GL_OES_compressed_paletted_texture
-#define GL_OES_compressed_paletted_texture 1
-#endif
-
-/* GL_OES_point_size_array */
-#ifndef GL_OES_point_size_array
-#define GL_OES_point_size_array 1
-GL_API void GL_APIENTRY glPointSizePointerOES (GLenum type, GLsizei stride, const GLvoid *pointer);
-#endif
-
-/* GL_OES_point_sprite */
-#ifndef GL_OES_point_sprite
-#define GL_OES_point_sprite 1
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* __gl_h_ */
-
