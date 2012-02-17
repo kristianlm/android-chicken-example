@@ -9,10 +9,10 @@
  */
 
 typedef int              khronos_int32_t;
-typedef unsigned char     khronos_uint8_t;
+typedef unsigned char    khronos_uint8_t;
 typedef float            khronos_float_t;
-typedef int*             khronos_intptr_t;
-typedef int            khronos_ssize_t;
+typedef signed long int  khronos_intptr_t;
+typedef int              khronos_ssize_t;
 
 typedef void             GLvoid;
 typedef char             GLchar;
