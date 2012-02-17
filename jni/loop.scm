@@ -1,5 +1,18 @@
 (declare (uses posix-mtime))
 
+#>
+#include <GLES/gl.h>
+#include "gl-utils.h"
+<#
+
+(include "./headers/gl-bind.scm")
+
+
+(define draw-sprite (foreign-lambda void "DrawSprite"
+                               float float float ; x y z
+                               float float)) ; w h
+
+
 (define filename-live "/sdcard/live-update.scm")
 (set! old-mtime 0)
 
