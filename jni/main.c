@@ -155,6 +155,7 @@ static void engine_draw_frame(struct engine* engine) {
     if(chicken_initialized) {
       chicken_update();
     }
+    fflush(NULL);
 
     eglSwapBuffers(engine->display, engine->surface);
 }
@@ -300,7 +301,7 @@ void android_main(struct android_app* state) {
                     ASensorEvent event;
                     while (ASensorEventQueue_getEvents(engine.sensorEventQueue,
                             &event, 1) > 0) {
-                        LOGI("accelerometer: x=%f y=%f z=%f",
+                      if(0)LOGI("accelerometer: x=%f y=%f z=%f",
                                 event.acceleration.x, event.acceleration.y,
                                 event.acceleration.z);
                     }

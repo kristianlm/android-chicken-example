@@ -9,7 +9,6 @@
 {
   // glBindTexture(GL_TEXTURE_2D,sprite);
  
-  glColor4f(.5, 1.0, 1.0, 0.5);
   
   W /= 2.0;
   H /= 2.0;
@@ -20,7 +19,6 @@
                    X + W, Y + H,  Z};
 
   //  GLfloat tex[] = {0,0, 1,0, 1,1, 0,1};
-  printf("%f x %f\n", W, H);
   glEnableClientState(GL_VERTEX_ARRAY);
   //  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
  
