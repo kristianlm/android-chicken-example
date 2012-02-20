@@ -1,4 +1,8 @@
-(declare (uses posix-mtime))
+(declare (uses posix-mtime
+               chicken-syntax
+               ports
+               tcp
+               srfi-18))
 
 #>
 #include <GLES/gl.h>
