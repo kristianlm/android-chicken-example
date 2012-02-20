@@ -17,30 +17,27 @@
 
 
 (define aip
-  (begin
-    (let [(line-number 0)]
-      (new-async-input-port
-       i
-       (lambda ()
-         (set! line-number (fx+ 1 line-number))
-         (display (conc "@" line-number "> ") o)
-         (handle-exceptions
-          exn
+  (let [(line-number 0)]
+    (new-async-input-port
+     i
+     (lambda ()
+       (set! line-number (fx+ 1 line-number))
+       (display (conc "@" line-number "> ") o)
+       (handle-exceptions
+        exn
+        (with-output-to-port o
+          (lambda () 
+            (print-error-message exn)
+            (print-call-chain)) )
+
+        (let [(sexp (read))]
+          (logi (conc "eval: " sexp))
           (with-output-to-port o
-            (lambda () 
-              (print-error-message exn)
-              (print-call-chain)) )
-
-          (let [(sexp (read))]
-            (logi (conc "eval: " sexp))
-            (with-output-to-port o
-              (lambda ()
-                (with-error-output-to-port o
-                                           (lambda ()
-                                             (display  (eval sexp))
-                                             (write-char #\newline))))))))))))
-
-
+            (lambda ()
+              (with-error-output-to-port o
+                                         (lambda ()
+                                           (display  (eval sexp))
+                                           (write-char #\newline)))))))))))
 
 ;; this will be called every game-loop
 (define (live-update d)
