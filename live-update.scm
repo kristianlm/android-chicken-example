@@ -9,16 +9,52 @@
 ;; if parsing fails, game-cycle will call the old function definition
 
 
-;; this will be evalutated only once
-(set! y 0)
+(print "loading")
+
+(require "/sdcard/init")
+(require "/sdcard/async-input")
+(use tcp)
+
+
+(define aip
+  (begin
+    (let [(line-number 0)]
+      (new-async-input-port
+       i
+       (lambda ()
+         (set! line-number (fx+ 1 line-number))
+         (display (conc "@" line-number "> ") o)
+         (handle-exceptions
+          exn
+          (with-output-to-port o
+            (lambda () 
+              (print-error-message exn)
+              (print-call-chain)) )
+
+          (let [(sexp (read))]
+            (logi (conc "eval: " sexp))
+            (with-output-to-port o
+              (lambda ()
+                (with-error-output-to-port o
+                                           (lambda ()
+                                             (display  (eval sexp))
+                                             (write-char #\newline))))))))))))
+
+
 
 ;; this will be called every game-loop
 (define (live-update d)
   (set! y (+ 0.2 y))
+  (read-async-input-port aip)
   (glPushMatrix)
   (glTranslatef 0 1 0)
   (glRotatef y 0 0 1)
   (draw-sprite 0.0 0 0.0  .2  2.0)
   (draw-sprite 0.0 0 0.0 2.0   .2)
   (glPopMatrix))
+
+
+(print "load over")
+
+
 
