@@ -39,10 +39,13 @@
                                            (display  (eval sexp))
                                            (write-char #\newline)))))))))))
 
+(let [(c 0.2)] 
+  (glClearColor c c c 1))
 ;; this will be called every game-loop
 (define (live-update d)
   (set! y (+ 0.2 y))
   (read-async-input-port aip)
+  (glClear GL_COLOR_BUFFER_BIT)
   (glPushMatrix)
   (glTranslatef 0 1 0)
   (glRotatef y 0 0 1)
