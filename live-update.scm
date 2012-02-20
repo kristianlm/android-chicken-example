@@ -41,18 +41,38 @@
 
 (let [(c 0.2)] 
   (glClearColor c c c 1))
+
+(define (my-drawsprite)
+  (draw-sprite 0 0 0 2 .3))
+
+(begin  ;; setup viewport
+  (glMatrixMode GL_PROJECTION)
+  (glLoadIdentity)
+  (let [(w 1.6)
+        (h 2.4)]
+    (glFrustumf (- w) w (- h) h 5 10))
+  (glMatrixMode GL_MODELVIEW)
+  (glLoadIdentity)
+  (glTranslatef 0 0 -6))
+
+(glBlendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA)
+
 ;; this will be called every game-loop
 (define (live-update d)
   (set! y (+ 0.2 y))
   (read-async-input-port aip)
   (glClear GL_COLOR_BUFFER_BIT)
   (glPushMatrix)
-  (glTranslatef 0 1 0)
+  (glColor4f 1 1 1 0.5)
   (glRotatef y 0 0 1)
-  (draw-sprite 0.0 0 0.0  .2  2.0)
-  (draw-sprite 0.0 0 0.0 2.0   .2)
+  ;; draw some kind of "star"
+  (let [(ds (lambda ()
+              (glRotatef 45 0 0 1)  (my-drawsprite)  
+              (glRotatef 45 0 0 1)  (my-drawsprite)  
+              (glRotatef 45 0 0 1)  (my-drawsprite)  
+              (glRotatef 45 0 0 1)  (my-drawsprite)))]
+    (ds) (glRotatef 22.5 0 0 1) (ds))
   (glPopMatrix))
-
 
 (print "load over")
 
