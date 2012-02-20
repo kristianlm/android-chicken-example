@@ -1656,7 +1656,7 @@ C_regparm double C_fcall C_milliseconds(void)
     struct timeval tv;
 
     if(C_gettimeofday(&tv, NULL) == -1) return 0;
-    else return (tv.tv_sec - C_startup_time_seconds) * 1000 + tv.tv_usec / 1000;
+    else return ((double)tv.tv_sec - C_startup_time_seconds) * 1000.0 + tv.tv_usec / 1000;
 #endif
 }
 
@@ -1745,7 +1745,7 @@ C_word C_fcall C_callback(C_word closure, int argc)
 {
   jmp_buf prev;
   C_word 
-    *a = C_alloc(2),
+    *a = C_alloc(3),
     k = C_closure(&a, 2, (C_word)callback_return_continuation, C_SCHEME_FALSE);
   int old = chicken_is_running;
 
@@ -4834,7 +4834,8 @@ C_regparm C_word C_fcall C_i_list_tail(C_word lst, C_word i)
   C_word lst0 = lst;
   int n;
 
-  if(lst != C_SCHEME_END_OF_LIST && C_block_header(lst) != C_PAIR_TAG)
+  if(lst != C_SCHEME_END_OF_LIST && 
+     (C_immediatep(lst) || C_block_header(lst) != C_PAIR_TAG))
     barf(C_BAD_ARGUMENT_TYPE_ERROR, "list-tail", lst);
 
   if(i & C_FIXNUM_BIT) n = C_unfix(i);
@@ -7079,7 +7080,7 @@ void allocate_vector_2(void *dummy)
 void C_ccall C_string_to_symbol(C_word c, C_word closure, C_word k, C_word string)
 {
   int len, key;
-  C_word s, *a = C_alloc(6);	/* 6 <=> 1 bucket (pair) + 1 symbol */
+  C_word s, *a = C_alloc(C_SIZEOF_SYMBOL + C_SIZEOF_BUCKET);
   C_char *name;
 
   if(c != 3) C_bad_argc(c, 3);
@@ -7348,7 +7349,7 @@ static int from_n_nary(C_char *str, int base, double *r)
     else if(c >= '0' + base) {
       if(base < 10) return 0;
       else if(c < 'a') return 0;
-      else if(c >= 'a' + base) return 0;
+      else if(c >= 'a' + base - 10) return 0;
       else n = n * base + c - 'a' + 10;
     }
     else n = n * base + c - '0';

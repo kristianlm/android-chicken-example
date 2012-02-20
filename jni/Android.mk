@@ -24,11 +24,17 @@ LOCAL_SRC_FILES := \
 	loop.c\
 	posix-extract.c\
 \
-	chicken-4.7.0/runtime.c \
-	chicken-4.7.0/library.c \
-	chicken-4.7.0/ports.c \
-	chicken-4.7.0/eval.c \
-	chicken-4.7.0/expand.c
+	chicken-4.7.0.5/runtime.c \
+	chicken-4.7.0.5/library.c \
+	chicken-4.7.0.5/ports.c \
+	chicken-4.7.0.5/eval.c \
+	chicken-4.7.0.5/expand.c \
+	chicken-4.7.0.5/tcp.c \
+	chicken-4.7.0.5/extras.c \
+	chicken-4.7.0.5/scheduler.c \
+	chicken-4.7.0.5/data-structures.c \
+	chicken-4.7.0.5/chicken-syntax.c \
+	chicken-4.7.0.5/srfi-18.c
 
 LOCAL_LDLIBS    := -llog -landroid -lEGL -lGLESv1_CM
 LOCAL_STATIC_LIBRARIES := android_native_app_glue

@@ -1,9 +1,9 @@
 /* Generated from ports.scm by the CHICKEN compiler
    http://www.call-with-current-continuation.org
-   2011-05-24 18:19
-   Version 4.6.7 
-   linux-unix-gnu-x86 [ manyargs dload ptables ]
-   compiled 2011-05-24 on debian (Linux)
+   2012-02-18 12:46
+   Version 4.7.0.5-st (stability/4.7.0)
+   macosx-unix-clang-x86-64 [ 64bit manyargs ptables ]
+   compiled 2012-02-18 on aeryn.xorinia.dim (Darwin)
    command line: ports.scm -optimize-level 2 -include-path . -include-path ./ -inline -ignore-repository -feature chicken-bootstrap -no-warnings -explicit-use -no-trace -output-file ports.c
    unit: ports
 */
@@ -15,11 +15,11 @@ static C_PTABLE_ENTRY *create_ptable(void);
 static C_TLS C_word lf[47];
 static double C_possibly_force_alignment;
 static C_char C_TLS li0[] C_aligned={C_lihdr(0,0,6),40,108,111,111,112,41,0,0};
-static C_char C_TLS li1[] C_aligned={C_lihdr(0,0,20),40,102,95,52,48,51,32,102,110,54,50,32,116,104,117,110,107,54,51,41,0,0,0,0};
+static C_char C_TLS li1[] C_aligned={C_lihdr(0,0,28),40,112,111,114,116,45,102,111,114,45,101,97,99,104,32,102,110,54,50,32,116,104,117,110,107,54,51,41,0,0,0,0};
 static C_char C_TLS li2[] C_aligned={C_lihdr(0,0,11),40,108,111,111,112,32,120,115,55,50,41,0,0,0,0,0};
-static C_char C_TLS li3[] C_aligned={C_lihdr(0,0,20),40,102,95,52,50,55,32,102,110,54,57,32,116,104,117,110,107,55,48,41,0,0,0,0};
+static C_char C_TLS li3[] C_aligned={C_lihdr(0,0,23),40,112,111,114,116,45,109,97,112,32,102,110,54,57,32,116,104,117,110,107,55,48,41,0};
 static C_char C_TLS li4[] C_aligned={C_lihdr(0,0,12),40,108,111,111,112,32,97,99,99,56,48,41,0,0,0,0};
-static C_char C_TLS li5[] C_aligned={C_lihdr(0,0,26),40,102,95,52,53,57,32,102,110,55,54,32,97,99,99,55,55,32,116,104,117,110,107,55,56,41,0,0,0,0,0,0};
+static C_char C_TLS li5[] C_aligned={C_lihdr(0,0,30),40,112,111,114,116,45,102,111,108,100,32,102,110,55,54,32,97,99,99,55,55,32,116,104,117,110,107,55,56,41,0,0};
 static C_char C_TLS li6[] C_aligned={C_lihdr(0,0,19),40,102,95,54,53,56,32,98,117,102,49,52,55,32,110,49,52,56,41,0,0,0,0,0};
 static C_char C_TLS li7[] C_aligned={C_lihdr(0,0,16),40,100,111,108,111,111,112,49,48,49,32,105,49,48,51,41};
 static C_char C_TLS li8[] C_aligned={C_lihdr(0,0,19),40,102,95,54,54,51,32,98,117,102,49,52,57,32,110,49,53,48,41,0,0,0,0,0};
@@ -28,13 +28,13 @@ static C_char C_TLS li10[] C_aligned={C_lihdr(0,0,11),40,108,111,111,112,32,110,
 static C_char C_TLS li11[] C_aligned={C_lihdr(0,0,6),40,97,54,56,48,41,0,0};
 static C_char C_TLS li12[] C_aligned={C_lihdr(0,0,11),40,97,54,56,54,32,120,49,53,49,41,0,0,0,0,0};
 static C_char C_TLS li13[] C_aligned={C_lihdr(0,0,6),40,108,111,111,112,41,0,0};
-static C_char C_TLS li14[] C_aligned={C_lihdr(0,0,34),40,102,95,54,50,50,32,115,114,99,49,51,49,32,100,101,115,116,49,51,50,32,46,32,116,109,112,49,51,48,49,51,51,41,0,0,0,0,0,0};
+static C_char C_TLS li14[] C_aligned={C_lihdr(0,0,38),40,99,111,112,121,45,112,111,114,116,32,115,114,99,49,51,49,32,100,101,115,116,49,51,50,32,46,32,116,109,112,49,51,48,49,51,51,41,0,0};
 static C_char C_TLS li15[] C_aligned={C_lihdr(0,0,17),40,103,49,54,51,32,103,49,55,52,49,55,53,49,55,54,41,0,0,0,0,0,0,0};
 static C_char C_TLS li16[] C_aligned={C_lihdr(0,0,26),40,102,111,114,45,101,97,99,104,45,108,111,111,112,49,54,50,32,103,49,54,56,49,56,48,41,0,0,0,0,0,0};
 static C_char C_TLS li17[] C_aligned={C_lihdr(0,0,11),40,97,55,50,53,32,115,49,53,57,41,0,0,0,0,0};
 static C_char C_TLS li18[] C_aligned={C_lihdr(0,0,26),40,102,111,114,45,101,97,99,104,45,108,111,111,112,49,56,54,32,103,49,57,50,49,57,54,41,0,0,0,0,0,0};
 static C_char C_TLS li19[] C_aligned={C_lihdr(0,0,6),40,97,55,54,50,41,0,0};
-static C_char C_TLS li20[] C_aligned={C_lihdr(0,0,18),40,102,95,55,50,48,32,46,32,112,111,114,116,115,49,53,56,41,0,0,0,0,0,0};
+static C_char C_TLS li20[] C_aligned={C_lihdr(0,0,32),40,109,97,107,101,45,98,114,111,97,100,99,97,115,116,45,112,111,114,116,32,46,32,112,111,114,116,115,49,53,56,41};
 static C_char C_TLS li21[] C_aligned={C_lihdr(0,0,6),40,108,111,111,112,41,0,0};
 static C_char C_TLS li22[] C_aligned={C_lihdr(0,0,6),40,97,56,48,51,41,0,0};
 static C_char C_TLS li23[] C_aligned={C_lihdr(0,0,6),40,97,56,51,56,41,0,0};
@@ -42,39 +42,39 @@ static C_char C_TLS li24[] C_aligned={C_lihdr(0,0,6),40,108,111,111,112,41,0,0};
 static C_char C_TLS li25[] C_aligned={C_lihdr(0,0,6),40,97,56,53,56,41,0,0};
 static C_char C_TLS li26[] C_aligned={C_lihdr(0,0,16),40,108,111,111,112,32,110,50,50,52,32,99,50,50,53,41};
 static C_char C_TLS li27[] C_aligned={C_lihdr(0,0,33),40,97,56,57,51,32,112,50,49,57,32,110,50,50,48,32,100,101,115,116,50,50,49,32,115,116,97,114,116,50,50,50,41,0,0,0,0,0,0,0};
-static C_char C_TLS li28[] C_aligned={C_lihdr(0,0,24),40,102,95,55,57,53,32,112,49,50,48,49,32,46,32,112,111,114,116,115,50,48,50,41};
+static C_char C_TLS li28[] C_aligned={C_lihdr(0,0,41),40,109,97,107,101,45,99,111,110,99,97,116,101,110,97,116,101,100,45,112,111,114,116,32,112,49,50,48,49,32,46,32,112,111,114,116,115,50,48,50,41,0,0,0,0,0,0,0};
 static C_char C_TLS li29[] C_aligned={C_lihdr(0,0,6),40,97,57,53,53,41,0,0};
 static C_char C_TLS li30[] C_aligned={C_lihdr(0,0,6),40,97,57,54,48,41,0,0};
 static C_char C_TLS li31[] C_aligned={C_lihdr(0,0,6),40,97,57,54,54,41,0,0};
-static C_char C_TLS li32[] C_aligned={C_lihdr(0,0,24),40,102,95,57,52,55,32,112,111,114,116,50,51,51,32,116,104,117,110,107,50,51,52,41};
+static C_char C_TLS li32[] C_aligned={C_lihdr(0,0,39),40,119,105,116,104,45,105,110,112,117,116,45,102,114,111,109,45,112,111,114,116,32,112,111,114,116,50,51,51,32,116,104,117,110,107,50,51,52,41,0};
 static C_char C_TLS li33[] C_aligned={C_lihdr(0,0,6),40,97,57,56,48,41,0,0};
 static C_char C_TLS li34[] C_aligned={C_lihdr(0,0,6),40,97,57,56,53,41,0,0};
 static C_char C_TLS li35[] C_aligned={C_lihdr(0,0,6),40,97,57,57,49,41,0,0};
-static C_char C_TLS li36[] C_aligned={C_lihdr(0,0,24),40,102,95,57,55,50,32,112,111,114,116,50,52,55,32,116,104,117,110,107,50,52,56,41};
+static C_char C_TLS li36[] C_aligned={C_lihdr(0,0,38),40,119,105,116,104,45,111,117,116,112,117,116,45,116,111,45,112,111,114,116,32,112,111,114,116,50,52,55,32,116,104,117,110,107,50,52,56,41,0,0};
 static C_char C_TLS li37[] C_aligned={C_lihdr(0,0,7),40,97,49,48,48,53,41,0};
 static C_char C_TLS li38[] C_aligned={C_lihdr(0,0,7),40,97,49,48,49,48,41,0};
 static C_char C_TLS li39[] C_aligned={C_lihdr(0,0,7),40,97,49,48,49,54,41,0};
-static C_char C_TLS li40[] C_aligned={C_lihdr(0,0,24),40,102,95,57,57,55,32,112,111,114,116,50,54,49,32,116,104,117,110,107,50,54,50,41};
-static C_char C_TLS li41[] C_aligned={C_lihdr(0,0,23),40,102,95,49,48,50,50,32,115,116,114,50,55,53,32,112,114,111,99,50,55,54,41,0};
-static C_char C_TLS li42[] C_aligned={C_lihdr(0,0,16),40,102,95,49,48,51,49,32,112,114,111,99,50,55,57,41};
+static C_char C_TLS li40[] C_aligned={C_lihdr(0,0,44),40,119,105,116,104,45,101,114,114,111,114,45,111,117,116,112,117,116,45,116,111,45,112,111,114,116,32,112,111,114,116,50,54,49,32,116,104,117,110,107,50,54,50,41,0,0,0,0};
+static C_char C_TLS li41[] C_aligned={C_lihdr(0,0,39),40,99,97,108,108,45,119,105,116,104,45,105,110,112,117,116,45,115,116,114,105,110,103,32,115,116,114,50,55,53,32,112,114,111,99,50,55,54,41,0};
+static C_char C_TLS li42[] C_aligned={C_lihdr(0,0,33),40,99,97,108,108,45,119,105,116,104,45,111,117,116,112,117,116,45,115,116,114,105,110,103,32,112,114,111,99,50,55,57,41,0,0,0,0,0,0,0};
 static C_char C_TLS li43[] C_aligned={C_lihdr(0,0,7),40,97,49,48,53,49,41,0};
 static C_char C_TLS li44[] C_aligned={C_lihdr(0,0,7),40,97,49,48,53,54,41,0};
 static C_char C_TLS li45[] C_aligned={C_lihdr(0,0,7),40,97,49,48,54,50,41,0};
-static C_char C_TLS li46[] C_aligned={C_lihdr(0,0,24),40,102,95,49,48,52,51,32,115,116,114,50,56,51,32,116,104,117,110,107,50,56,52,41};
+static C_char C_TLS li46[] C_aligned={C_lihdr(0,0,40),40,119,105,116,104,45,105,110,112,117,116,45,102,114,111,109,45,115,116,114,105,110,103,32,115,116,114,50,56,51,32,116,104,117,110,107,50,56,52,41};
 static C_char C_TLS li47[] C_aligned={C_lihdr(0,0,7),40,97,49,48,55,54,41,0};
 static C_char C_TLS li48[] C_aligned={C_lihdr(0,0,7),40,97,49,48,56,49,41,0};
 static C_char C_TLS li49[] C_aligned={C_lihdr(0,0,7),40,97,49,48,57,48,41,0};
-static C_char C_TLS li50[] C_aligned={C_lihdr(0,0,17),40,102,95,49,48,54,56,32,116,104,117,110,107,50,57,54,41,0,0,0,0,0,0,0};
+static C_char C_TLS li50[] C_aligned={C_lihdr(0,0,32),40,119,105,116,104,45,111,117,116,112,117,116,45,116,111,45,115,116,114,105,110,103,32,116,104,117,110,107,50,57,54,41};
 static C_char C_TLS li51[] C_aligned={C_lihdr(0,0,12),40,97,49,49,52,48,32,112,51,51,51,41,0,0,0,0};
 static C_char C_TLS li52[] C_aligned={C_lihdr(0,0,12),40,97,49,49,54,49,32,112,51,51,57,41,0,0,0,0};
 static C_char C_TLS li53[] C_aligned={C_lihdr(0,0,12),40,97,49,49,56,50,32,112,51,52,54,41,0,0,0,0};
 static C_char C_TLS li54[] C_aligned={C_lihdr(0,0,12),40,97,49,49,57,49,32,112,51,52,56,41,0,0,0,0};
-static C_char C_TLS li55[] C_aligned={C_lihdr(0,0,47),40,102,95,49,48,57,54,32,114,101,97,100,51,49,52,32,114,101,97,100,121,63,51,49,53,32,99,108,111,115,101,51,49,54,32,46,32,116,109,112,51,49,51,51,49,55,41,0};
+static C_char C_TLS li55[] C_aligned={C_lihdr(0,0,56),40,109,97,107,101,45,105,110,112,117,116,45,112,111,114,116,32,114,101,97,100,51,49,52,32,114,101,97,100,121,63,51,49,53,32,99,108,111,115,101,51,49,54,32,46,32,116,109,112,51,49,51,51,49,55,41};
 static C_char C_TLS li56[] C_aligned={C_lihdr(0,0,17),40,97,49,50,54,54,32,112,51,54,56,32,99,51,54,57,41,0,0,0,0,0,0,0};
 static C_char C_TLS li57[] C_aligned={C_lihdr(0,0,17),40,97,49,50,55,54,32,112,51,55,48,32,115,51,55,49,41,0,0,0,0,0,0,0};
 static C_char C_TLS li58[] C_aligned={C_lihdr(0,0,12),40,97,49,50,56,50,32,112,51,55,50,41,0,0,0,0};
 static C_char C_TLS li59[] C_aligned={C_lihdr(0,0,12),40,97,49,50,57,49,32,112,51,55,52,41,0,0,0,0};
-static C_char C_TLS li60[] C_aligned={C_lihdr(0,0,38),40,102,95,49,50,52,57,32,119,114,105,116,101,51,53,56,32,99,108,111,115,101,51,53,57,32,46,32,116,109,112,51,53,55,51,54,48,41,0,0};
+static C_char C_TLS li60[] C_aligned={C_lihdr(0,0,48),40,109,97,107,101,45,111,117,116,112,117,116,45,112,111,114,116,32,119,114,105,116,101,51,53,56,32,99,108,111,115,101,51,53,57,32,46,32,116,109,112,51,53,55,51,54,48,41};
 static C_char C_TLS li61[] C_aligned={C_lihdr(0,0,10),40,116,111,112,108,101,118,101,108,41,0,0,0,0,0,0};
 
 
@@ -670,7 +670,7 @@ t18=C_mutate((C_word*)lf[16]+1 /* (set! make-output-port ...) */,(*a=C_CLOSURE_T
 t19=((C_word*)t0)[2];
 ((C_proc2)(void*)(*((C_word*)t19+1)))(2,t19,C_SCHEME_UNDEFINED);}
 
-/* f_1249 in k399 */
+/* make-output-port in k399 */
 static void C_ccall f_1249(C_word c,C_word t0,C_word t1,C_word t2,C_word t3,...){
 C_word tmp;
 C_word t4;
@@ -706,7 +706,7 @@ else{
 t7=*((C_word*)lf[12]+1);
 ((C_proc4)(void*)(*((C_word*)t7+1)))(4,t7,t5,lf[0],t4);}}}
 
-/* k1251 */
+/* k1251 in make-output-port in k399 */
 static void C_ccall f_1253(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -731,7 +731,7 @@ t8=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1262,a[2]=t7,a[3]=((C_word*)t0)[2],tmp=(C
 /* ports.scm:265: ##sys#make-port */
 ((C_proc6)C_fast_retrieve_proc(*((C_word*)lf[41]+1)))(6,*((C_word*)lf[41]+1),t8,C_SCHEME_FALSE,t6,lf[44],lf[43]);}
 
-/* k1260 in k1251 */
+/* k1260 in k1251 in make-output-port in k399 */
 static void C_ccall f_1262(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -744,7 +744,7 @@ t2=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1265,a[2]=t1,a[3]=((C_word*)t0)[3],tmp=(C
 /* ports.scm:266: ##sys#set-port-data! */
 ((C_proc4)C_fast_retrieve_proc(*((C_word*)lf[40]+1)))(4,*((C_word*)lf[40]+1),t2,t1,((C_word*)t0)[2]);}
 
-/* k1263 in k1260 in k1251 */
+/* k1263 in k1260 in k1251 in make-output-port in k399 */
 static void C_ccall f_1265(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -752,7 +752,7 @@ C_word *a;
 t2=((C_word*)t0)[3];
 ((C_proc2)(void*)(*((C_word*)t2+1)))(2,t2,((C_word*)t0)[2]);}
 
-/* a1291 in k1251 */
+/* a1291 in k1251 in make-output-port in k399 */
 static void C_ccall f_1292(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -771,7 +771,7 @@ t3=C_SCHEME_UNDEFINED;
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,t3);}}
 
-/* a1282 in k1251 */
+/* a1282 in k1251 in make-output-port in k399 */
 static void C_ccall f_1283(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -786,7 +786,7 @@ t3=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1287,a[2]=t2,a[3]=t1,tmp=(C_word)a,a+=4,t
 t4=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t4))(2,t4,t3);}
 
-/* k1285 in a1282 in k1251 */
+/* k1285 in a1282 in k1251 in make-output-port in k399 */
 static void C_ccall f_1287(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -794,7 +794,7 @@ C_word *a;
 t2=((C_word*)t0)[3];
 ((C_proc2)(void*)(*((C_word*)t2+1)))(2,t2,C_i_set_i_slot(((C_word*)t0)[2],C_fix(8),C_SCHEME_TRUE));}
 
-/* a1276 in k1251 */
+/* a1276 in k1251 in make-output-port in k399 */
 static void C_ccall f_1277(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -807,7 +807,7 @@ C_save_and_reclaim((void*)tr4,(void*)f_1277,4,t0,t1,t2,t3);}
 t4=((C_word*)t0)[2];
 ((C_proc3)C_fast_retrieve_proc(t4))(3,t4,t1,t3);}
 
-/* a1266 in k1251 */
+/* a1266 in k1251 in make-output-port in k399 */
 static void C_ccall f_1267(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -822,7 +822,7 @@ t4=C_a_i_string(&a,1,t3);
 t5=((C_word*)t0)[2];
 ((C_proc3)C_fast_retrieve_proc(t5))(3,t5,t1,t4);}
 
-/* f_1096 in k399 */
+/* make-input-port in k399 */
 static void C_ccall f_1096(C_word c,C_word t0,C_word t1,C_word t2,C_word t3,C_word t4,...){
 C_word tmp;
 C_word t5;
@@ -896,7 +896,7 @@ else{
 t22=*((C_word*)lf[12]+1);
 ((C_proc4)(void*)(*((C_word*)t22+1)))(4,t22,t1,lf[0],t21);}}
 
-/* k1134 */
+/* k1134 in make-input-port in k399 */
 static void C_ccall f_1136(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -909,7 +909,7 @@ t2=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1139,a[2]=((C_word*)t0)[3],a[3]=t1,tmp=(C
 /* ports.scm:243: ##sys#set-port-data! */
 ((C_proc4)C_fast_retrieve_proc(*((C_word*)lf[40]+1)))(4,*((C_word*)lf[40]+1),t2,t1,((C_word*)t0)[2]);}
 
-/* k1137 in k1134 */
+/* k1137 in k1134 in make-input-port in k399 */
 static void C_ccall f_1139(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -919,7 +919,7 @@ t2=((C_word*)t0)[3];
 t3=((C_word*)t0)[2];
 ((C_proc2)(void*)(*((C_word*)t3+1)))(2,t3,t2);}
 
-/* a1191 */
+/* a1191 in make-input-port in k399 */
 static void C_ccall f_1192(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -932,7 +932,7 @@ C_save_and_reclaim((void*)tr3,(void*)f_1192,3,t0,t1,t2);}
 t3=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t3))(2,t3,t1);}
 
-/* a1182 */
+/* a1182 in make-input-port in k399 */
 static void C_ccall f_1183(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -947,7 +947,7 @@ t3=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1187,a[2]=t2,a[3]=t1,tmp=(C_word)a,a+=4,t
 t4=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t4))(2,t4,t3);}
 
-/* k1185 in a1182 */
+/* k1185 in a1182 in make-input-port in k399 */
 static void C_ccall f_1187(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -955,7 +955,7 @@ C_word *a;
 t2=((C_word*)t0)[3];
 ((C_proc2)(void*)(*((C_word*)t2+1)))(2,t2,C_i_set_i_slot(((C_word*)t0)[2],C_fix(8),C_SCHEME_TRUE));}
 
-/* a1161 */
+/* a1161 in make-input-port in k399 */
 static void C_ccall f_1162(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -981,7 +981,7 @@ t4=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1178,a[2]=t1,a[3]=t2,tmp=(C_word)a,a+=4,t
 t5=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t5))(2,t5,t4);}}}
 
-/* k1176 in a1161 */
+/* k1176 in a1161 in make-input-port in k399 */
 static void C_ccall f_1178(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -991,7 +991,7 @@ t2=C_i_setslot(((C_word*)t0)[3],C_fix(10),t1);
 t3=((C_word*)t0)[2];
 ((C_proc2)(void*)(*((C_word*)t3+1)))(2,t3,t1);}
 
-/* a1140 */
+/* a1140 in make-input-port in k399 */
 static void C_ccall f_1141(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1017,7 +1017,7 @@ else{
 t4=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t4))(2,t4,t1);}}}
 
-/* f_1068 in k399 */
+/* with-output-to-string in k399 */
 static void C_ccall f_1068(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1031,7 +1031,7 @@ t3=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1072,a[2]=t1,a[3]=t2,tmp=(C_word)a,a+=4,t
 /* ports.scm:200: open-output-string */
 ((C_proc2)C_fast_retrieve_proc(*((C_word*)lf[37]+1)))(2,*((C_word*)lf[37]+1),t3);}
 
-/* k1070 */
+/* k1070 in with-output-to-string in k399 */
 static void C_ccall f_1072(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1057,7 +1057,7 @@ t8=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_1091,a[2]=t5,a[3]=t3,a[4]=((C_word)li49),
 t9=*((C_word*)lf[25]+1);
 ((C_proc5)(void*)(*((C_word*)t9+1)))(5,t9,((C_word*)t0)[2],t6,t7,t8);}
 
-/* a1090 in k1070 */
+/* a1090 in k1070 in with-output-to-string in k399 */
 static void C_ccall f_1091(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1073,7 +1073,7 @@ t3=C_mutate((C_word*)lf[28]+1 /* (set! ##sys#standard-output ...) */,((C_word*)(
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* a1081 in k1070 */
+/* a1081 in k1070 in with-output-to-string in k399 */
 static void C_ccall f_1082(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1088,7 +1088,7 @@ t2=(*a=C_CLOSURE_TYPE|2,a[1]=(C_word)f_1086,a[2]=t1,tmp=(C_word)a,a+=3,tmp);
 t3=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t3))(2,t3,t2);}
 
-/* k1084 in a1081 in k1070 */
+/* k1084 in a1081 in k1070 in with-output-to-string in k399 */
 static void C_ccall f_1086(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1096,7 +1096,7 @@ C_word *a;
 /* ports.scm:202: get-output-string */
 ((C_proc3)C_fast_retrieve_proc(*((C_word*)lf[36]+1)))(3,*((C_word*)lf[36]+1),((C_word*)t0)[2],*((C_word*)lf[28]+1));}
 
-/* a1076 in k1070 */
+/* a1076 in k1070 in with-output-to-string in k399 */
 static void C_ccall f_1077(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1112,7 +1112,7 @@ t3=C_mutate((C_word*)lf[28]+1 /* (set! ##sys#standard-output ...) */,((C_word*)(
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* f_1043 in k399 */
+/* with-input-from-string in k399 */
 static void C_ccall f_1043(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -1126,7 +1126,7 @@ t4=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1047,a[2]=t1,a[3]=t3,tmp=(C_word)a,a+=4,t
 /* ports.scm:195: open-input-string */
 ((C_proc3)C_fast_retrieve_proc(*((C_word*)lf[34]+1)))(3,*((C_word*)lf[34]+1),t4,t2);}
 
-/* k1045 */
+/* k1045 in with-input-from-string in k399 */
 static void C_ccall f_1047(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1152,7 +1152,7 @@ t8=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_1063,a[2]=t5,a[3]=t3,a[4]=((C_word)li45),
 t9=*((C_word*)lf[25]+1);
 ((C_proc5)(void*)(*((C_word*)t9+1)))(5,t9,((C_word*)t0)[2],t6,t7,t8);}
 
-/* a1062 in k1045 */
+/* a1062 in k1045 in with-input-from-string in k399 */
 static void C_ccall f_1063(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1168,7 +1168,7 @@ t3=C_mutate((C_word*)lf[24]+1 /* (set! ##sys#standard-input ...) */,((C_word*)((
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* a1056 in k1045 */
+/* a1056 in k1045 in with-input-from-string in k399 */
 static void C_ccall f_1057(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1181,7 +1181,7 @@ C_save_and_reclaim((void*)tr2,(void*)f_1057,2,t0,t1);}
 t2=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t2))(2,t2,t1);}
 
-/* a1051 in k1045 */
+/* a1051 in k1045 in with-input-from-string in k399 */
 static void C_ccall f_1052(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1197,7 +1197,7 @@ t3=C_mutate((C_word*)lf[24]+1 /* (set! ##sys#standard-input ...) */,((C_word*)((
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* f_1031 in k399 */
+/* call-with-output-string in k399 */
 static void C_ccall f_1031(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1211,7 +1211,7 @@ t3=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1035,a[2]=t2,a[3]=t1,tmp=(C_word)a,a+=4,t
 /* ports.scm:189: open-output-string */
 ((C_proc2)C_fast_retrieve_proc(*((C_word*)lf[37]+1)))(2,*((C_word*)lf[37]+1),t3);}
 
-/* k1033 */
+/* k1033 in call-with-output-string in k399 */
 static void C_ccall f_1035(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1225,7 +1225,7 @@ t2=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1038,a[2]=t1,a[3]=((C_word*)t0)[3],tmp=(C
 t3=((C_word*)t0)[2];
 ((C_proc3)C_fast_retrieve_proc(t3))(3,t3,t2,t1);}
 
-/* k1036 in k1033 */
+/* k1036 in k1033 in call-with-output-string in k399 */
 static void C_ccall f_1038(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1233,7 +1233,7 @@ C_word *a;
 /* ports.scm:191: get-output-string */
 ((C_proc3)C_fast_retrieve_proc(*((C_word*)lf[36]+1)))(3,*((C_word*)lf[36]+1),((C_word*)t0)[3],((C_word*)t0)[2]);}
 
-/* f_1022 in k399 */
+/* call-with-input-string in k399 */
 static void C_ccall f_1022(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -1247,7 +1247,7 @@ t4=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_1026,a[2]=t1,a[3]=t3,tmp=(C_word)a,a+=4,t
 /* ports.scm:184: open-input-string */
 ((C_proc3)C_fast_retrieve_proc(*((C_word*)lf[34]+1)))(3,*((C_word*)lf[34]+1),t4,t2);}
 
-/* k1024 */
+/* k1024 in call-with-input-string in k399 */
 static void C_ccall f_1026(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1256,7 +1256,7 @@ C_word *a;
 t2=((C_word*)t0)[3];
 ((C_proc3)C_fast_retrieve_proc(t2))(3,t2,((C_word*)t0)[2],t1);}
 
-/* f_997 in k399 */
+/* with-error-output-to-port in k399 */
 static void C_ccall f_997(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -1270,7 +1270,7 @@ t4=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_1001,a[2]=t1,a[3]=t3,a[4]=t2,tmp=(C_word)
 /* ports.scm:176: ##sys#check-port */
 ((C_proc4)C_fast_retrieve_proc(*((C_word*)lf[26]+1)))(4,*((C_word*)lf[26]+1),t4,t2,lf[32]);}
 
-/* k999 */
+/* k999 in with-error-output-to-port in k399 */
 static void C_ccall f_1001(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1296,7 +1296,7 @@ t8=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_1017,a[2]=t5,a[3]=t3,a[4]=((C_word)li39),
 t9=*((C_word*)lf[25]+1);
 ((C_proc5)(void*)(*((C_word*)t9+1)))(5,t9,((C_word*)t0)[2],t6,t7,t8);}
 
-/* a1016 in k999 */
+/* a1016 in k999 in with-error-output-to-port in k399 */
 static void C_ccall f_1017(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1312,7 +1312,7 @@ t3=C_mutate((C_word*)lf[31]+1 /* (set! ##sys#standard-error ...) */,((C_word*)((
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* a1010 in k999 */
+/* a1010 in k999 in with-error-output-to-port in k399 */
 static void C_ccall f_1011(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1325,7 +1325,7 @@ C_save_and_reclaim((void*)tr2,(void*)f_1011,2,t0,t1);}
 t2=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t2))(2,t2,t1);}
 
-/* a1005 in k999 */
+/* a1005 in k999 in with-error-output-to-port in k399 */
 static void C_ccall f_1006(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1341,7 +1341,7 @@ t3=C_mutate((C_word*)lf[31]+1 /* (set! ##sys#standard-error ...) */,((C_word*)((
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* f_972 in k399 */
+/* with-output-to-port in k399 */
 static void C_ccall f_972(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -1355,7 +1355,7 @@ t4=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_976,a[2]=t1,a[3]=t3,a[4]=t2,tmp=(C_word)a
 /* ports.scm:171: ##sys#check-port */
 ((C_proc4)C_fast_retrieve_proc(*((C_word*)lf[26]+1)))(4,*((C_word*)lf[26]+1),t4,t2,lf[29]);}
 
-/* k974 */
+/* k974 in with-output-to-port in k399 */
 static void C_ccall f_976(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1381,7 +1381,7 @@ t8=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_992,a[2]=t5,a[3]=t3,a[4]=((C_word)li35),t
 t9=*((C_word*)lf[25]+1);
 ((C_proc5)(void*)(*((C_word*)t9+1)))(5,t9,((C_word*)t0)[2],t6,t7,t8);}
 
-/* a991 in k974 */
+/* a991 in k974 in with-output-to-port in k399 */
 static void C_ccall f_992(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1397,7 +1397,7 @@ t3=C_mutate((C_word*)lf[28]+1 /* (set! ##sys#standard-output ...) */,((C_word*)(
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* a985 in k974 */
+/* a985 in k974 in with-output-to-port in k399 */
 static void C_ccall f_986(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1410,7 +1410,7 @@ C_save_and_reclaim((void*)tr2,(void*)f_986,2,t0,t1);}
 t2=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t2))(2,t2,t1);}
 
-/* a980 in k974 */
+/* a980 in k974 in with-output-to-port in k399 */
 static void C_ccall f_981(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1426,7 +1426,7 @@ t3=C_mutate((C_word*)lf[28]+1 /* (set! ##sys#standard-output ...) */,((C_word*)(
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* f_947 in k399 */
+/* with-input-from-port in k399 */
 static void C_ccall f_947(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -1440,7 +1440,7 @@ t4=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_951,a[2]=t1,a[3]=t3,a[4]=t2,tmp=(C_word)a
 /* ports.scm:166: ##sys#check-port */
 ((C_proc4)C_fast_retrieve_proc(*((C_word*)lf[26]+1)))(4,*((C_word*)lf[26]+1),t4,t2,lf[23]);}
 
-/* k949 */
+/* k949 in with-input-from-port in k399 */
 static void C_ccall f_951(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1466,7 +1466,7 @@ t8=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_967,a[2]=t5,a[3]=t3,a[4]=((C_word)li31),t
 t9=*((C_word*)lf[25]+1);
 ((C_proc5)(void*)(*((C_word*)t9+1)))(5,t9,((C_word*)t0)[2],t6,t7,t8);}
 
-/* a966 in k949 */
+/* a966 in k949 in with-input-from-port in k399 */
 static void C_ccall f_967(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1482,7 +1482,7 @@ t3=C_mutate((C_word*)lf[24]+1 /* (set! ##sys#standard-input ...) */,((C_word*)((
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* a960 in k949 */
+/* a960 in k949 in with-input-from-port in k399 */
 static void C_ccall f_961(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1495,7 +1495,7 @@ C_save_and_reclaim((void*)tr2,(void*)f_961,2,t0,t1);}
 t2=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t2))(2,t2,t1);}
 
-/* a955 in k949 */
+/* a955 in k949 in with-input-from-port in k399 */
 static void C_ccall f_956(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1511,7 +1511,7 @@ t3=C_mutate((C_word*)lf[24]+1 /* (set! ##sys#standard-input ...) */,((C_word*)((
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,C_SCHEME_UNDEFINED);}
 
-/* f_795 in k399 */
+/* make-concatenated-port in k399 */
 static void C_ccall f_795(C_word c,C_word t0,C_word t1,C_word t2,...){
 C_word tmp;
 C_word t3;
@@ -1549,7 +1549,7 @@ t10=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_894,a[2]=t6,a[3]=((C_word)li27),tmp=(C_w
 t11=*((C_word*)lf[22]+1);
 ((C_proc7)(void*)(*((C_word*)t11+1)))(7,t11,t1,t7,t8,*((C_word*)lf[17]+1),t9,t10);}
 
-/* a893 */
+/* a893 in make-concatenated-port in k399 */
 static void C_ccall f_894(C_word c,C_word t0,C_word t1,C_word t2,C_word t3,C_word t4,C_word t5){
 C_word tmp;
 C_word t6;
@@ -1567,7 +1567,7 @@ t8=C_set_block_item(t7,0,(*a=C_CLOSURE_TYPE|6,a[1]=(C_word)f_900,a[2]=t4,a[3]=t5
 t9=((C_word*)t7)[1];
 f_900(t9,t1,t3,C_fix(0));}
 
-/* loop in a893 */
+/* loop in a893 in make-concatenated-port in k399 */
 static void C_fcall f_900(C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -1594,7 +1594,7 @@ t6=C_fixnum_plus(((C_word*)t0)[3],t3);
 /* ports.scm:157: read-string! */
 ((C_proc6)C_fast_retrieve_proc(*((C_word*)lf[10]+1)))(6,*((C_word*)lf[10]+1),t4,t2,((C_word*)t0)[2],t5,t6);}}}
 
-/* k914 in loop in a893 */
+/* k914 in loop in a893 in make-concatenated-port in k399 */
 static void C_ccall f_916(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1615,7 +1615,7 @@ else{
 t3=t2;
 f_919(t3,C_SCHEME_UNDEFINED);}}
 
-/* k917 in k914 in loop in a893 */
+/* k917 in k914 in loop in a893 in make-concatenated-port in k399 */
 static void C_fcall f_919(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1628,7 +1628,7 @@ t3=C_fixnum_plus(((C_word*)t0)[4],((C_word*)t0)[5]);
 t4=((C_word*)((C_word*)t0)[3])[1];
 f_900(t4,((C_word*)t0)[2],t2,t3);}
 
-/* a858 */
+/* a858 in make-concatenated-port in k399 */
 static void C_ccall f_859(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1646,7 +1646,7 @@ t4=C_set_block_item(t3,0,(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_865,a[2]=t3,a[3]=((
 t5=((C_word*)t3)[1];
 f_865(t5,t1);}
 
-/* loop in a858 */
+/* loop in a858 in make-concatenated-port in k399 */
 static void C_fcall f_865(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1665,7 +1665,7 @@ t3=C_i_car(((C_word*)((C_word*)t0)[3])[1]);
 /* ports.scm:147: peek-char */
 ((C_proc3)C_fast_retrieve_proc(*((C_word*)lf[21]+1)))(3,*((C_word*)lf[21]+1),t2,t3);}}
 
-/* k873 in loop in a858 */
+/* k873 in loop in a858 in make-concatenated-port in k399 */
 static void C_ccall f_875(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1682,7 +1682,7 @@ else{
 t2=((C_word*)t0)[2];
 ((C_proc2)(void*)(*((C_word*)t2+1)))(2,t2,t1);}}
 
-/* a838 */
+/* a838 in make-concatenated-port in k399 */
 static void C_ccall f_839(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1700,7 +1700,7 @@ t2=C_i_car(((C_word*)((C_word*)t0)[2])[1]);
 /* ports.scm:141: char-ready? */
 ((C_proc3)C_fast_retrieve_proc(*((C_word*)lf[20]+1)))(3,*((C_word*)lf[20]+1),t1,t2);}}
 
-/* a803 */
+/* a803 in make-concatenated-port in k399 */
 static void C_ccall f_804(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1718,7 +1718,7 @@ t4=C_set_block_item(t3,0,(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_810,a[2]=t3,a[3]=((
 t5=((C_word*)t3)[1];
 f_810(t5,t1);}
 
-/* loop in a803 */
+/* loop in a803 in make-concatenated-port in k399 */
 static void C_fcall f_810(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1738,7 +1738,7 @@ t3=C_i_car(((C_word*)((C_word*)t0)[3])[1]);
 t4=*((C_word*)lf[19]+1);
 ((C_proc3)(void*)(*((C_word*)t4+1)))(3,t4,t2,t3);}}
 
-/* k818 in loop in a803 */
+/* k818 in loop in a803 in make-concatenated-port in k399 */
 static void C_ccall f_820(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1755,7 +1755,7 @@ else{
 t2=((C_word*)t0)[2];
 ((C_proc2)(void*)(*((C_word*)t2+1)))(2,t2,t1);}}
 
-/* f_720 in k399 */
+/* make-broadcast-port in k399 */
 static void C_ccall f_720(C_word c,C_word t0,C_word t1,...){
 C_word tmp;
 C_word t2;
@@ -1782,7 +1782,7 @@ t4=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_763,a[2]=t2,a[3]=((C_word)li19),tmp=(C_wo
 t5=*((C_word*)lf[16]+1);
 ((C_proc5)(void*)(*((C_word*)t5+1)))(5,t5,t1,t3,*((C_word*)lf[17]+1),t4);}
 
-/* a762 */
+/* a762 in make-broadcast-port in k399 */
 static void C_ccall f_763(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1806,7 +1806,7 @@ t7=C_set_block_item(t6,0,(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_772,a[2]=t2,a[3]=t6
 t8=((C_word*)t6)[1];
 f_772(t8,t1,t3);}
 
-/* for-each-loop186 in a762 */
+/* for-each-loop186 in a762 in make-broadcast-port in k399 */
 static void C_fcall f_772(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1828,7 +1828,7 @@ t3=C_SCHEME_UNDEFINED;
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,t3);}}
 
-/* k780 in for-each-loop186 in a762 */
+/* k780 in for-each-loop186 in a762 in make-broadcast-port in k399 */
 static void C_ccall f_782(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1838,7 +1838,7 @@ t2=C_slot(((C_word*)t0)[4],C_fix(1));
 t3=((C_word*)((C_word*)t0)[3])[1];
 f_772(t3,((C_word*)t0)[2],t2);}
 
-/* a725 */
+/* a725 in make-broadcast-port in k399 */
 static void C_ccall f_726(C_word c,C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1862,7 +1862,7 @@ t8=C_set_block_item(t7,0,(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_740,a[2]=t3,a[3]=t7
 t9=((C_word*)t7)[1];
 f_740(t9,t1,t4);}
 
-/* for-each-loop162 in a725 */
+/* for-each-loop162 in a725 in make-broadcast-port in k399 */
 static void C_fcall f_740(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1884,7 +1884,7 @@ t3=C_SCHEME_UNDEFINED;
 t4=t1;
 ((C_proc2)(void*)(*((C_word*)t4+1)))(2,t4,t3);}}
 
-/* k748 in for-each-loop162 in a725 */
+/* k748 in for-each-loop162 in a725 in make-broadcast-port in k399 */
 static void C_ccall f_750(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -1894,7 +1894,7 @@ t2=C_slot(((C_word*)t0)[4],C_fix(1));
 t3=((C_word*)((C_word*)t0)[3])[1];
 f_740(t3,((C_word*)t0)[2],t2);}
 
-/* g163 in a725 */
+/* g163 in a725 in make-broadcast-port in k399 */
 static void C_fcall f_728(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -1908,7 +1908,7 @@ t3=*((C_word*)lf[9]+1);
 t4=t3;
 ((C_proc5)C_fast_retrieve_proc(t4))(5,t4,t1,((C_word*)t0)[2],C_SCHEME_FALSE,t2);}
 
-/* f_622 in k399 */
+/* copy-port in k399 */
 static void C_ccall f_622(C_word c,C_word t0,C_word t1,C_word t2,C_word t3,...){
 C_word tmp;
 C_word t4;
@@ -1994,7 +1994,7 @@ else{
 t13=*((C_word*)lf[12]+1);
 ((C_proc4)(void*)(*((C_word*)t13+1)))(4,t13,t1,lf[0],t12);}}
 
-/* loop */
+/* loop in copy-port in k399 */
 static void C_fcall f_551(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2008,7 +2008,7 @@ t2=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_555,a[2]=((C_word*)t0)[3],a[3]=((C_word*)
 t3=((C_word*)t0)[2];
 f_681(t3,t2);}
 
-/* k553 in loop */
+/* k553 in loop in copy-port in k399 */
 static void C_ccall f_555(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2028,7 +2028,7 @@ t2=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_564,a[2]=((C_word*)t0)[4],a[3]=((C_word*)
 t3=((C_word*)t0)[2];
 f_687(t3,t2,t1);}}
 
-/* k562 in k553 in loop */
+/* k562 in k553 in loop in copy-port in k399 */
 static void C_ccall f_564(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2037,7 +2037,7 @@ C_word *a;
 t2=((C_word*)((C_word*)t0)[3])[1];
 f_551(t2,((C_word*)t0)[2]);}
 
-/* a686 */
+/* a686 in copy-port in k399 */
 static void C_fcall f_687(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -2049,7 +2049,7 @@ C_save_and_reclaim((void*)trf_687,NULL,3,t0,t1,t2);}
 t3=((C_word*)t0)[3];
 ((C_proc4)C_fast_retrieve_proc(t3))(4,t3,t1,t2,((C_word*)t0)[2]);}
 
-/* a680 */
+/* a680 in copy-port in k399 */
 static void C_fcall f_681(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2061,7 +2061,7 @@ C_save_and_reclaim((void*)trf_681,NULL,2,t0,t1);}
 t2=((C_word*)t0)[3];
 ((C_proc3)C_fast_retrieve_proc(t2))(3,t2,t1,((C_word*)t0)[2]);}
 
-/* k571 */
+/* k571 in copy-port in k399 */
 static void C_ccall f_573(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2078,7 +2078,7 @@ t4=C_set_block_item(t3,0,(*a=C_CLOSURE_TYPE|7,a[1]=(C_word)f_578,a[2]=((C_word*)
 t5=((C_word*)t3)[1];
 f_578(t5,((C_word*)t0)[2],C_fix(0));}
 
-/* loop in k571 */
+/* loop in k571 in copy-port in k399 */
 static void C_fcall f_578(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -2099,7 +2099,7 @@ else{
 t5=t4;
 f_582(t5,C_SCHEME_UNDEFINED);}}
 
-/* k618 in loop in k571 */
+/* k618 in loop in k571 in copy-port in k399 */
 static void C_ccall f_620(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2109,7 +2109,7 @@ t2=C_set_block_item(((C_word*)t0)[3],0,C_fix(0));
 t3=((C_word*)t0)[2];
 f_582(t3,t2);}
 
-/* k580 in loop in k571 */
+/* k580 in loop in k571 in copy-port in k399 */
 static void C_fcall f_582(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2123,7 +2123,7 @@ t2=(*a=C_CLOSURE_TYPE|6,a[1]=(C_word)f_585,a[2]=((C_word*)t0)[4],a[3]=((C_word*)
 t3=((C_word*)t0)[3];
 ((C_proc3)C_fast_retrieve_proc(t3))(3,t3,t2,((C_word*)t0)[2]);}
 
-/* k583 in k580 in loop in k571 */
+/* k583 in k580 in loop in k571 in copy-port in k399 */
 static void C_ccall f_585(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2146,7 +2146,7 @@ t4=C_fixnum_plus(((C_word*)((C_word*)t0)[6])[1],C_fix(1));
 t5=((C_word*)((C_word*)t0)[2])[1];
 f_578(t5,((C_word*)t0)[5],t4);}}
 
-/* k487 */
+/* k487 in copy-port in k399 */
 static void C_ccall f_489(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2163,7 +2163,7 @@ t4=C_set_block_item(t3,0,(*a=C_CLOSURE_TYPE|6,a[1]=(C_word)f_494,a[2]=((C_word*)
 t5=((C_word*)t3)[1];
 f_494(t5,((C_word*)t0)[2]);}
 
-/* loop in k487 */
+/* loop in k487 in copy-port in k399 */
 static void C_fcall f_494(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2176,7 +2176,7 @@ t2=(*a=C_CLOSURE_TYPE|5,a[1]=(C_word)f_498,a[2]=((C_word*)t0)[3],a[3]=((C_word*)
 /* ports.scm:75: read-string! */
 ((C_proc5)C_fast_retrieve_proc(*((C_word*)lf[10]+1)))(5,*((C_word*)lf[10]+1),t2,C_fix(1024),((C_word*)t0)[3],((C_word*)t0)[2]);}
 
-/* k496 in loop in k487 */
+/* k496 in loop in k487 in copy-port in k399 */
 static void C_ccall f_498(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2198,7 +2198,7 @@ t3=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_507,a[2]=((C_word*)t0)[5],a[3]=((C_word*)
 t4=((C_word*)t0)[3];
 ((C_proc4)C_fast_retrieve_proc(t4))(4,t4,t3,((C_word*)t0)[2],t1);}}
 
-/* k505 in k496 in loop in k487 */
+/* k505 in k496 in loop in k487 in copy-port in k399 */
 static void C_ccall f_507(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2207,7 +2207,7 @@ C_word *a;
 t2=((C_word*)((C_word*)t0)[3])[1];
 f_494(t2,((C_word*)t0)[2]);}
 
-/* f_663 */
+/* f_663 in copy-port in k399 */
 static void C_ccall f_663(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -2261,7 +2261,7 @@ t2=C_fixnum_plus(((C_word*)t0)[4],C_fix(1));
 t3=((C_word*)((C_word*)t0)[3])[1];
 f_518(t3,((C_word*)t0)[2],t2);}
 
-/* f_658 */
+/* f_658 in copy-port in k399 */
 static void C_ccall f_658(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -2273,7 +2273,7 @@ C_save_and_reclaim((void*)tr4,(void*)f_658,4,t0,t1,t2,t3);}
 /* ports.scm:108: write-string */
 ((C_proc5)C_fast_retrieve_proc(*((C_word*)lf[9]+1)))(5,*((C_word*)lf[9]+1),t1,t2,t3,((C_word*)t0)[2]);}
 
-/* f_459 in k399 */
+/* port-fold in k399 */
 static void C_ccall f_459(C_word c,C_word t0,C_word t1,C_word t2,C_word t3,C_word t4){
 C_word tmp;
 C_word t5;
@@ -2291,7 +2291,7 @@ t7=C_set_block_item(t6,0,(*a=C_CLOSURE_TYPE|5,a[1]=(C_word)f_465,a[2]=t4,a[3]=t2
 t8=((C_word*)t6)[1];
 f_465(t8,t1,t3);}
 
-/* loop */
+/* loop in port-fold in k399 */
 static void C_fcall f_465(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -2305,7 +2305,7 @@ t3=(*a=C_CLOSURE_TYPE|5,a[1]=(C_word)f_469,a[2]=((C_word*)t0)[3],a[3]=((C_word*)
 t4=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t4))(2,t4,t3);}
 
-/* k467 in loop */
+/* k467 in loop in port-fold in k399 */
 static void C_ccall f_469(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2325,7 +2325,7 @@ t2=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_482,a[2]=((C_word*)t0)[4],a[3]=((C_word*)
 t3=((C_word*)t0)[2];
 ((C_proc4)C_fast_retrieve_proc(t3))(4,t3,t2,t1,((C_word*)t0)[5]);}}
 
-/* k480 in k467 in loop */
+/* k480 in k467 in loop in port-fold in k399 */
 static void C_ccall f_482(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2334,7 +2334,7 @@ C_word *a;
 t2=((C_word*)((C_word*)t0)[3])[1];
 f_465(t2,((C_word*)t0)[2],t1);}
 
-/* f_427 in k399 */
+/* port-map in k399 */
 static void C_ccall f_427(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -2352,7 +2352,7 @@ t6=C_set_block_item(t5,0,(*a=C_CLOSURE_TYPE|5,a[1]=(C_word)f_433,a[2]=t3,a[3]=t2
 t7=((C_word*)t5)[1];
 f_433(t7,t1,C_SCHEME_END_OF_LIST);}
 
-/* loop */
+/* loop in port-map in k399 */
 static void C_fcall f_433(C_word t0,C_word t1,C_word t2){
 C_word tmp;
 C_word t3;
@@ -2366,7 +2366,7 @@ t3=(*a=C_CLOSURE_TYPE|5,a[1]=(C_word)f_437,a[2]=((C_word*)t0)[3],a[3]=((C_word*)
 t4=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t4))(2,t4,t3);}
 
-/* k435 in loop */
+/* k435 in loop in port-map in k399 */
 static void C_ccall f_437(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2384,7 +2384,7 @@ t2=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_457,a[2]=((C_word*)t0)[5],a[3]=((C_word*)
 t3=((C_word*)t0)[2];
 ((C_proc3)C_fast_retrieve_proc(t3))(3,t3,t2,t1);}}
 
-/* k455 in k435 in loop */
+/* k455 in k435 in loop in port-map in k399 */
 static void C_ccall f_457(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2398,7 +2398,7 @@ t2=C_a_i_cons(&a,2,t1,((C_word*)t0)[4]);
 t3=((C_word*)((C_word*)t0)[3])[1];
 f_433(t3,((C_word*)t0)[2],t2);}
 
-/* f_403 in k399 */
+/* port-for-each in k399 */
 static void C_ccall f_403(C_word c,C_word t0,C_word t1,C_word t2,C_word t3){
 C_word tmp;
 C_word t4;
@@ -2416,7 +2416,7 @@ t6=C_set_block_item(t5,0,(*a=C_CLOSURE_TYPE|5,a[1]=(C_word)f_409,a[2]=t3,a[3]=t2
 t7=((C_word*)t5)[1];
 f_409(t7,t1);}
 
-/* loop */
+/* loop in port-for-each in k399 */
 static void C_fcall f_409(C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2430,7 +2430,7 @@ t2=(*a=C_CLOSURE_TYPE|4,a[1]=(C_word)f_413,a[2]=((C_word*)t0)[3],a[3]=((C_word*)
 t3=((C_word*)t0)[2];
 ((C_proc2)C_fast_retrieve_proc(t3))(2,t3,t2);}
 
-/* k411 in loop */
+/* k411 in loop in port-for-each in k399 */
 static void C_ccall f_413(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
@@ -2450,7 +2450,7 @@ t2=(*a=C_CLOSURE_TYPE|3,a[1]=(C_word)f_422,a[2]=((C_word*)t0)[4],a[3]=((C_word*)
 t3=((C_word*)t0)[2];
 ((C_proc3)C_fast_retrieve_proc(t3))(3,t3,t2,t1);}}
 
-/* k420 in k411 in loop */
+/* k420 in k411 in loop in port-for-each in k399 */
 static void C_ccall f_422(C_word c,C_word t0,C_word t1){
 C_word tmp;
 C_word t2;
