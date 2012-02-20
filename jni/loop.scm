@@ -3,8 +3,28 @@
 #>
 #include <GLES/gl.h>
 #include "gl-utils.h"
+#include <android/log.h>
+
+void logi (char* line) {
+                        __android_log_print (ANDROID_LOG_INFO,
+                                             "chicken-log",
+                                             line);
+}
+
 <#
 
+(define logi (foreign-lambda void "logi" c-string))
+
+(logi "******************** running")
+
+(define (make-log-wrapper-port)
+  (make-output-port
+   (lambda (string)
+     (logi string))
+   (lambda ()
+     (logi "closing port")) ))
+
+(current-output-port (make-log-wrapper-port))
 (include "./headers/gl-bind.scm")
 
 
