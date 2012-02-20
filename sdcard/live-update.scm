@@ -16,28 +16,31 @@
 (use tcp)
 
 
-(define aip
-  (let [(line-number 0)]
-    (new-async-input-port
-     i
-     (lambda ()
-       (set! line-number (fx+ 1 line-number))
-       (display (conc "@" line-number "> ") o)
-       (handle-exceptions
-        exn
-        (with-output-to-port o
-          (lambda () 
-            (print-error-message exn)
-            (print-call-chain)) )
 
-        (let [(sexp (read))]
-          (logi (conc "eval: " sexp))
-          (with-output-to-port o
+(define aip
+  (let* [(show-prompt
+          (let [(line-number 0)]
             (lambda ()
-              (with-error-output-to-port o
-                                         (lambda ()
-                                           (display  (eval sexp))
-                                           (write-char #\newline)))))))))))
+              (set! line-number (fx+ 1 line-number))
+              (display (conc "@" line-number "> ") o))))
+        (repl
+         (lambda ()
+           (handle-exceptions
+            exn
+            (with-output-to-port o
+              (lambda () 
+                (print-error-message exn)
+                (print-call-chain)))
+            (begin (show-prompt)
+              (let [(sexp (read))]
+               (logi (conc "eval: " sexp))
+               (with-output-to-port o
+                 (lambda ()
+                   (with-error-output-to-port o
+                                              (lambda ()
+                                                (display  (eval sexp))
+                                                (write-char #\newline))))))))))]
+    (new-async-input-port i repl)))
 
 (let [(c 0.2)] 
   (glClearColor c c c 1))
