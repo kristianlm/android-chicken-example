@@ -8,10 +8,6 @@
 ;; main.c will call this without failing
 (define (live-update d ) #f)
 
-(define s (tcp-listen 1234))
-
-;; TODO: make this non-blocking!
-(print "********** PLEASE CONNECT YOUR DEBUGGER")
-(define-values (i o) (tcp-accept s))
-(print "***********************  INIT LOADED")
+;; a global listening socket for remote-repl
+(define *repl-socket* (tcp-listen 1234))
 

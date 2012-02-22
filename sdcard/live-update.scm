@@ -18,11 +18,20 @@
 
 (use tcp)
 
-(define repl-cr (make-input-port-yield-coroutine
-                 (lambda (cr in-port)
-                   (display "my repl-cr!" o)
-                   (my-repl in-port o))
-                 i))
+(define *repl-coroutines* '())
+(define (make-repl-coroutine i o)
+  (make-input-port-yield-coroutine
+   (lambda (cr in-port)
+     (my-repl in-port o))
+   i))
+
+(define (process-remote)
+  (when (tcp-accept-ready? *repl-socket*)    
+    (define-values (in out) (tcp-accept *repl-socket*))
+    (set! *repl-coroutines*
+          (cons (make-repl-coroutine in out) *repl-coroutines*)))
+  (set! *repl-coroutines* (filter coroutine-thunk *repl-coroutines*))
+  (map coroutine-call *repl-coroutines*))
 
 (let [(c 0.2)] 
   (glClearColor c c c 1))
@@ -45,7 +54,7 @@
 ;; this will be called every game-loop
 (define (live-update d)
   (set! y (+ 0.2 y))
-  (coroutine-call repl-cr)
+  (process-remote)
   (glClear GL_COLOR_BUFFER_BIT)
   (glPushMatrix)
   (glColor4f 1 1 1 0.5)
