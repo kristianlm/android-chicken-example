@@ -32,7 +32,7 @@ EOF
 		   #:type-error loc "bad argument type - not a fixnum or string" file)) ) ) )
     (if (fx< r 0)
 	(if err
-	    (posix-error #:file-error loc "cannot access file" file) 
+	    (print #:file-error loc "cannot access file" file) 
 	    #f)
 	#t)))
 
