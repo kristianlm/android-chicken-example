@@ -5,7 +5,7 @@
 
 (define (make-input-port-yield-coroutine thunk
                                          #!optional (port (current-input-port)))
-  (let* ([cr (make-coroutine #f #f)]
+  (let* ([cr (make-coroutine #f #f)] ; TODO: use letrec here?
          [reader
           (lambda ()
             (let loop ()
