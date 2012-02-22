@@ -30,6 +30,7 @@ void logi (char* line) {
      (logi "closing port")) ))
 
 (current-output-port (make-log-wrapper-port))
+(current-error-port (make-log-wrapper-port))
 (include "./headers/gl-bind.scm")
 
 
