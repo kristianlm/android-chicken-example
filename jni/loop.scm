@@ -2,6 +2,7 @@
                chicken-syntax
                ports
                tcp
+               srfi-1
                srfi-18))
 
 #>

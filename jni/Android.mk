@@ -34,6 +34,7 @@ LOCAL_SRC_FILES := \
 	chicken-4.7.0.5/scheduler.c \
 	chicken-4.7.0.5/data-structures.c \
 	chicken-4.7.0.5/chicken-syntax.c \
+	chicken-4.7.0.5/srfi-1.c \
 	chicken-4.7.0.5/srfi-18.c
 
 LOCAL_LDLIBS    := -llog -landroid -lEGL -lGLESv1_CM
