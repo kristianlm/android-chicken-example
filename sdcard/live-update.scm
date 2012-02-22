@@ -36,8 +36,10 @@
 (let [(c 0.2)] 
   (glClearColor c c c 1))
 
-(define (my-drawsprite)
-  (draw-sprite 0 0 0 2 .3))
+(glEnable GL_BLEND)
+
+(define (my-drawsprite s width)
+  (draw-sprite 0 0 0 s width))
 
 (begin  ;; setup viewport
   (glMatrixMode GL_PROJECTION)
@@ -60,15 +62,16 @@
   (glColor4f 1 1 1 0.5)
   (glRotatef y 0 0 1)
   ;; draw some kind of "star"
-  (let [(ds (lambda ()
-              (glRotatef 45 0 0 1)  (my-drawsprite)  
-              (glRotatef 45 0 0 1)  (my-drawsprite)  
-              (glRotatef 45 0 0 1)  (my-drawsprite)  
-              (glRotatef 45 0 0 1)  (my-drawsprite)))]
-    (ds) (glRotatef 22.5 0 0 1) (ds))
+  (let [(ds (lambda (s w)
+              (glRotatef 45 0 0 1)  (my-drawsprite s w)
+              (glRotatef 45 0 0 1)  (my-drawsprite s w)
+              (glRotatef 45 0 0 1)  (my-drawsprite s w)
+              (glRotatef 45 0 0 1)  (my-drawsprite s w)))
+        (p1 (sin (/ (current-milliseconds) 1000)))
+        (p2 (- 1 (sin (/ (current-milliseconds) 1000))))]
+    (glRotatef 22.5 0 0 1) (ds p1 0.2)
+    (glRotatef 22.5 0 0 1) (ds (- 1 p1) 0.04))
   (glPopMatrix))
 
 (print "load over")
-
-
 
