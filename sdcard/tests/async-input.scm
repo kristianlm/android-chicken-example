@@ -1,4 +1,7 @@
-(use srfi-1) ; for make-list
+
+;; TODO: update to work with coroutines
+
+(use srfi-1) ; for make-list and map-in-order
 
 (define (call-aip aip n)
   (let loop [(n n)]

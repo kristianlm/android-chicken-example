@@ -12,35 +12,17 @@
 (print "loading")
 
 (require "/sdcard/init")
+(require "/sdcard/coroutines")
 (require "/sdcard/async-input")
+(require "/sdcard/repl")
+
 (use tcp)
 
-
-
-(define aip
-  (let* [(show-prompt
-          (let [(line-number 0)]
-            (lambda ()
-              (set! line-number (fx+ 1 line-number))
-              (display (conc "@" line-number "> ") o))))
-        (repl
-         (lambda ()
-           (handle-exceptions
-            exn
-            (with-output-to-port o
-              (lambda () 
-                (print-error-message exn)
-                (print-call-chain)))
-            (begin (show-prompt)
-              (let [(sexp (read))]
-               (logi (conc "eval: " sexp))
-               (with-output-to-port o
-                 (lambda ()
-                   (with-error-output-to-port o
-                                              (lambda ()
-                                                (display  (eval sexp))
-                                                (write-char #\newline))))))))))]
-    (new-async-input-port i repl)))
+(define repl-cr (make-input-port-yield-coroutine
+                 (lambda (cr in-port)
+                   (display "my repl-cr!" o)
+                   (my-repl in-port o))
+                 i))
 
 (let [(c 0.2)] 
   (glClearColor c c c 1))
@@ -63,7 +45,7 @@
 ;; this will be called every game-loop
 (define (live-update d)
   (set! y (+ 0.2 y))
-  (read-async-input-port aip)
+  (coroutine-call repl-cr)
   (glClear GL_COLOR_BUFFER_BIT)
   (glPushMatrix)
   (glColor4f 1 1 1 0.5)
