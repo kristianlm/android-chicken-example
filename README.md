@@ -3,8 +3,8 @@
 A small template for developing Chicken apps/games interactively on
 Android. The template currently features:
 
-#. OpenGL ES bindings
-#. Remote REPL
+1. OpenGL ES bindings
+1. Remote REPL (on port 1234)
 
 This sample will start a OpenGL activity and evaluate your
 `/sdcard/live-update.scm` file which you can replace in a running
