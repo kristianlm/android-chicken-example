@@ -1,15 +1,29 @@
 # Interactive Chicken Scheme on Android 
 
 A small template for developing Chicken apps/games interactively on
-Android. This template is heavily based on the native-activity sample
-application found in the Android NDK.
+Android. The template currently features:
+
+#. OpenGL ES bindings
+#. Remote REPL
 
 This sample will start a OpenGL activity and evaluate your
 `/sdcard/live-update.scm` file which you can replace in a running
-session.
+session (to be replaced by remote-repl). You can `adb push live-update.scm /sdcard/` during
+a running sessions and see the effect of the new `live-update` definition immediately.
 
-This template let's the Android NDK do the hard work of
-cross-compilation, and the chicken sources are included in the repo.
+More interestingly, you can also connect to a running repl on port 1234:
+
+    $ adb forward tcp:1234 tcp:1234
+    $ echo "(glDisable GL_BLEND)" | nc localhost 1234
+
+Transparency should immediately be turned off. You can easily set up Emacs
+to use this repl by doing `M-x nc localhost 1234` (use `C-q` to force inserting spaces).
+
+This template lets the Android NDK do the hard work of
+cross-compilation, and the chicken sources are included in the repo. 
+It is heavily based on the native-activity sample
+application found in the Android NDK.
+
 
 ## Build steps
 
@@ -20,10 +34,10 @@ If you don't have it already, do `chicken-install bind `. Then do
 
 A `./headers/gl-bind.scm` should be spit out.
 
-#### Compile loop.scm -> loop.c with:
+#### Compile loop.scm -> loop.c and others with:
 
     $ cd android-chicken
-    $ csc -t jni/loop.scm
+    $ csc -t jni/*.scm
 
 #### Build the native part of the app:
 
@@ -36,15 +50,7 @@ This should place a `libnative-activity.so` file under `./libs/armeabi`
     $ android update project -p . -t android-10
     $ ant debug
     $ adb install bin/NativeActivity-debug.apk
-    
-    
 
-## Notes
-
-The example only prints out to stdout. This will not normally show up
-in your logcat. To have Android pipe stdout to logcat, see http://developer.android.com/guide/developing/tools/adb.html#stdout.
-
-Note that this `stdout->logcat` feature seems to be buffering. You may have to wait for
-something to appear.
+Launch the app and press the screen for it to start.
 
 
