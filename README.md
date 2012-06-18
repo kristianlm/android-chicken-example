@@ -24,13 +24,15 @@ cross-compilation, and the chicken sources are included in the repo.
 It is heavily based on the native-activity sample
 application found in the Android NDK.
 
+Check out my separate makefile project for building Chicken on Android 
+[here](https://github.com/kristianlm/chicken-android).
 
 ## Build steps
 
 #### Convert gl-bind.h into gl-bind.scm
 If you don't have it already, do `chicken-install bind `. Then do
 
-    chicken-bind ./headers/gl-bind.h
+    chicken-bind -export-constants headers/gl-bind.h
 
 A `./headers/gl-bind.scm` should be spit out.
 
@@ -45,6 +47,15 @@ A `./headers/gl-bind.scm` should be spit out.
 
 This should place a `libnative-activity.so` file under `./libs/armeabi`
 
+#### Upload interpreted code-snippets
+
+The app is looking for additional sources in the `/sdcard` directory of your phone. 
+These make debugging more convenient because you can replace them and they will re-load a runtime.
+
+    $ for f in sdcard/*.scm ; do adb push $f /sdcard/ ; done
+
+Obviously, these should be compiled into the app once testing is over.
+
 #### Build & Install the APK as usual
 
     $ android update project -p . -t android-10
@@ -53,4 +64,6 @@ This should place a `libnative-activity.so` file under `./libs/armeabi`
 
 Launch the app and press the screen for it to start.
 
+## Troubleshooting
 
+I'm using the Android NDK r8, and 
