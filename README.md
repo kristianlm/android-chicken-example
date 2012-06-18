@@ -27,6 +27,18 @@ application found in the Android NDK.
 Check out my separate makefile project for building Chicken on Android 
 [here](https://github.com/kristianlm/chicken-android).
 
+## Requirements
+
+  [Chicken Scheme]: http://call-cc.org
+  [Android NDK]: http://developer.android.com/sdk/ndk/index.html
+  [Chicken Bind]: http://wiki.call-cc.org/eggref/4/bind
+  
+
+* [Chicken Scheme] \(I'm on 4.7.0.4) 
+* [Chicken Bind]
+* [Android NDK] \(I'm on `android-ndk-r7`)
+
+
 ## Build steps
 
 #### Convert gl-bind.h into gl-bind.scm
@@ -63,7 +75,3 @@ Obviously, these should be compiled into the app once testing is over.
     $ adb install bin/NativeActivity-debug.apk
 
 Launch the app and press the screen for it to start.
-
-## Troubleshooting
-
-I'm using the Android NDK r8, and 
