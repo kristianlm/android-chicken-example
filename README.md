@@ -71,7 +71,8 @@ Obviously, these should be compiled into the app once testing is over.
 #### Build & Install the APK as usual
 
     $ android update project -p . -t android-10
-    $ ant debug
+    $ ant clean debug # clean to make sure .so file is replaced
     $ adb install bin/NativeActivity-debug.apk
+    $ adb forward tcp:1234 tcp:1234 # phone's repl at localhost:1234
 
 Launch the app and press the screen for it to start.
