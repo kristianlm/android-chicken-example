@@ -1,4 +1,11 @@
-# Interactive Chicken Scheme on Android 
+# Outdated!!
+
+This project handles the build-process in a clumpsy manner. Check out 
+[this newer](https://github.com/kristianlm/chicken-android) version instead!
+
+I'll still leave it out if people want to look at it.
+
+## Interactive Chicken Scheme on Android 
 
 A small template for developing Chicken apps/games interactively on
 Android. The template currently features:
