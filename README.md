@@ -1,7 +1,7 @@
 # Outdated!!
 
 This project handles the build-process in a clumpsy manner. Check out 
-[this newer](https://github.com/kristianlm/chicken-android) version instead!
+[this newer](https://github.com/chicken-mobile/chicken-sdl2-android-builder) version instead!
 
 I'll still leave it out if people want to look at it.
 
